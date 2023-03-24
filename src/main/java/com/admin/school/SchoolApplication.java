@@ -1,8 +1,9 @@
 package com.admin.school;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+@AutoConfiguration
 @SpringBootApplication
 public class SchoolApplication {
 

@@ -2,19 +2,22 @@ package com.admin.school.controllers;
 
 import com.admin.school.entities.StudentEntity;
 import com.admin.school.services.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 @RestController
+@RequestMapping("/student")
 public class StudentController {
+    @Autowired
     private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<StudentEntity> findAllStudents(){
         return studentService.findAllStudents();
     }
@@ -23,11 +26,11 @@ public class StudentController {
     public Optional<StudentEntity> findStudentById(@PathVariable("id") Long id){
         return studentService.findById(id);
     }
-    @PostMapping("/")
+    @PostMapping
     public StudentEntity saveStudent(@RequestBody StudentEntity studentEntity){
         return studentService.saveStudent(studentEntity);
     }
-    @PutMapping("/")
+    @PutMapping
     public StudentEntity updateStudent(@RequestBody StudentEntity studentEntity){
         return studentService.updateStudent(studentEntity);
     }
